@@ -2,6 +2,8 @@ import React from 'react'
 import {MdWindPower} from 'react-icons/md'
 import {WiHumidity} from 'react-icons/wi'
 import {GiPressureCooker} from 'react-icons/gi'
+import {BsFillSunsetFill} from 'react-icons/bs'
+import {BsFillSunriseFill} from 'react-icons/bs'
 
 const WeatherDeatils = ({ data }) => {
     return (
@@ -40,19 +42,19 @@ const WeatherDeatils = ({ data }) => {
                     <div className='bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl'>
                         <div className='text-xl'>
                             <h3>Sunrise</h3>
-                            <h3>{data.sys.sunrise} m/s</h3>
+                            <h3>{new Date(data.sys.sunrise * 1000).toLocaleTimeString()}</h3>
                         </div>
                         <div className=''>
-                        <MdWindPower fontSize={40} />
+                        <BsFillSunriseFill fontSize={40} />
                         </div>
                     </div>
                     <div className='bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl'>
                         <div className='text-xl'>
                             <h3>Sunset</h3>
-                            <h3>{data.sys.sunset} m/s</h3>
+                            <h3>{new Date(data.sys.sunset * 1000).toLocaleTimeString()}</h3>
                         </div>
                         <div className=''>
-                        <MdWindPower fontSize={40} />
+                        <BsFillSunsetFill fontSize={40} />
                         </div>
                     </div>
                     <div className='bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl'>

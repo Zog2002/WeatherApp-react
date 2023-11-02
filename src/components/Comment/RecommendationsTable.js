@@ -1,21 +1,21 @@
 import React from "react";
-
+import { MdRecommend } from "react-icons/md"
 const RecommendationsTable = ({ currentWeather }) => {
   const getRecommendations = () => {
     if (!currentWeather) {
-      return "Không có thông tin thời tiết.";
+      return "No weather information available.";
     }
     const temperature = currentWeather.main.temp;
     const weatherDescription = currentWeather.weather[0].description;
 
     const recommendations = {
-      hot: "Trời hôm nay nóng, tốt nhất là ở nhà nằm điều hòa.",
-      lightRain: "Trời mưa, hãy mang theo ô.",
-      brokenClouds: "Mây rải rác.",
-      cold: "Trời lạnh. Hãy mặc áo ấm.",
-      clearSky: "Hôm nay bầu trời rất là đẹp.",
-      overcastClouds: "Trời khả năng mưa, hãy mang theo ô khi ra ngoài.",
-      default: "Không có đề suất cụ thể."
+      hot: "It's hot today, it's best to stay home and stay in the air conditioning.",
+      lightRain: "If it's raining, bring an umbrella.",
+      brokenClouds: "Partly cloudy.",
+      cold: "Cold weather. Please wear warm clothes.",
+      clearSky: "Today the sky is very beautiful.",
+      overcastClouds: "It's likely to rain, bring an umbrella when going out.",
+      default: "There are no specific suggestions."
     };
 
     if (temperature > 30) {
@@ -38,10 +38,13 @@ const RecommendationsTable = ({ currentWeather }) => {
 
   return (
     <div className=" items-center p-12 gap-2 w-1/2">
-  <h2 className="text-3xl text-white font-bold italic">!!! Đề suất cho bạn:</h2>
+    <div className="flex text-3xl text-black font-bold italic">
+  <MdRecommend fontSize={40} />
+  <h2 className="text-3xl text-white font-bold italic"> Recommended for you: </h2>
+  </div>
   <p className="text-white block font-semibold text-xl ml-20">{getRecommendations()}</p>
 </div>
   );
-};
+}
 
 export default RecommendationsTable;
