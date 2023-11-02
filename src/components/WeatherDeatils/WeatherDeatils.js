@@ -22,7 +22,7 @@ const WeatherDeatils = ({ data }) => {
                     <div className='bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl'>
                         <div className='text-xl'>
                             <h3>Humidity</h3>
-                            <h3>{data.main.humidity}m/s</h3>
+                            <h3>{data.main.humidity} m/s</h3>
                         </div>
                         <div className=''>
                         <WiHumidity fontSize={40} />
@@ -31,7 +31,7 @@ const WeatherDeatils = ({ data }) => {
                     <div className='bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl'>
                         <div className='text-xl'>
                             <h3>Pressure</h3>
-                            <h3>{data.main.pressure}hPa</h3>
+                            <h3>{data.main.pressure} hPa</h3>
                         </div>
                         <div className=''>
                         <GiPressureCooker fontSize={40} />

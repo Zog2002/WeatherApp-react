@@ -1,5 +1,7 @@
 export const WEATHER_API_URL = "https://api.openweathermap.org/data/2.5";
+export const WEATHER_API_URL_ONE_KEY = "https://api.openweathermap.org/data/3.0";
 export const WEATHER_API_KEY = "42fb87bbfb15d5b24db08c89aa832710"; 
+
 
 export const geoApiOptions = {
 	method: "GET",

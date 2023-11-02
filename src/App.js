@@ -6,8 +6,11 @@ import CurrentWeather from './components/current-weather/currentWeather';
 import Forecast from './components/forecast/forecast';
 import WeatherDeatils from './components/WeatherDeatils/WeatherDeatils';
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api"
+import RecommendationsTable  from "../src/components/Comment/RecommendationsTable";
+
 
 function App() {
+
 
 
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -20,10 +23,12 @@ function App() {
 
     const currentWeatherFetch = fetch(
       `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
+
     );
     const forecastFetch = fetch(
       `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
     );
+    
 
     Promise.all([currentWeatherFetch, forecastFetch])
       .then(async (response) => {
@@ -42,10 +47,10 @@ function App() {
 
 
   //console.log(currentWeather);
-  //console.log(forecast);
+  console.log(forecast);
 
   return (
-    <div className='bg-cover bg-gradient-to-r from-blue-500 to-blue-300 h-screen'>
+    <div className='bg-cover bg-gradient-to-r from-blue-500 to-blue-300 overflow-y-scroll h-screen'>
       <div className="bg-white/25 w-full flex flex-col h-fit">
         {/*INPUT AND LOGO*/}
         <div className='flex flex-col md:flex-row justify-between items-center p-12'>
@@ -59,6 +64,14 @@ function App() {
           {forecast && <Forecast data={forecast} />}
 
         </div>
+        <div className=' p-12 items-center justify-between'>
+          {currentWeather && <RecommendationsTable currentWeather={currentWeather} />}
+        </div>
+        {/* Hourly forecast */}
+        <div>
+          
+        </div>
+        {/* ---- */}
         <div >
           {weatherdeatils && <WeatherDeatils data={weatherdeatils} />}
         </div>

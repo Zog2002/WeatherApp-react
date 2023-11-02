@@ -29,12 +29,15 @@ const Forecast = ({ data }) => {
     // </div>
 
 <>
-      <label className="title">Daily</label>
+      
       <Accordion allowZeroExpanded>
+      <label className="title">The next 7 days </label>
         {data.list.splice(0, 7).map((item, idx) => (
           <AccordionItem key={idx} >
+          
             <AccordionItemHeading>
               <AccordionItemButton>
+              
                 <div className="daily-item">
                   <img src={`icons/${item.weather[0].icon}.png`} className="icon-small" alt="weather" />
                   <label className="day">{forecastDays[idx]}</label>
